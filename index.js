@@ -24,8 +24,8 @@ app.post("/shorten", async (req, res) => {
       short_url: shortUrl,
     };
     console.log(newUrl);
-    await URL.create({ newUrl });
-    res.status(StatusCodes.CREATED).json({ shortUrl: shortUrl });
+    const responseUrl = await URL.create(newUrl);
+    res.status(StatusCodes.CREATED).json({ responseUrl: responseUrl });
   } catch (err) {
     res.status(StatusCodes.BAD_REQUEST).json({});
   }
