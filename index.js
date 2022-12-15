@@ -15,10 +15,6 @@ const PORT = process.env.PORT;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  res.send("Url shortner");
-});
-
 app.post("/shorten", async (req, res) => {
   try {
     const { longUrl } = req.body;

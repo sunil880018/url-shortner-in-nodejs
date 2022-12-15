@@ -3,10 +3,12 @@ const URLSchema = new Schema(
   {
     short_url: {
       type: String,
+      required:true,
       trim: true,
     },
     long_url: {
       type: String,
+      required:true,
       trim: true,
     },
   },
