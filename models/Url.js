@@ -1,11 +1,16 @@
 import { Schema, model } from "mongoose";
 const URLSchema = new Schema({
+  user_id: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
   short_url: {
     type: String,
     required: true,
     unique: true,
-    minLength: 7,
-    maxLength: 25,
+    minLength: 18,
+    maxLength: 30,
     trim: true,
   },
   long_url: {
