@@ -1,5 +1,3 @@
-import { BASE_URL } from "../constants.js";
-
 const base_62 = (apiKey) => {
   apiKey = parseInt(apiKey);
   let base_62_number = "";
@@ -78,7 +76,7 @@ const base_62 = (apiKey) => {
 
 const generateShortUrl = (apiKey) => {
   const decoded = base_62(apiKey);
-  return BASE_URL + decoded;
+  return decoded;
 };
 
 export { generateShortUrl };

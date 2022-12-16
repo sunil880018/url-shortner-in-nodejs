@@ -1,3 +1,4 @@
 const BASE_URL = "http://myapp.com/";
-
-export { BASE_URL };
+const TIME_TO_RATE_LIMITER = 1000;
+const NO_OF_REQUEST_PER_GIVEN_TIME = 10;
+export { BASE_URL, TIME_TO_RATE_LIMITER, NO_OF_REQUEST_PER_GIVEN_TIME };

@@ -9,7 +9,7 @@ const URLSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    minLength: 18,
+    minLength: 1,
     maxLength: 30,
     trim: true,
   },
