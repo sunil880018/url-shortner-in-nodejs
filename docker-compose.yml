@@ -22,6 +22,7 @@ services:      # can have multiple container
   environment:
    - MONGO_INITDB_ROOT_USERNAME=name
    - MONGO_INITDB_ROOT_PASSWORD=mypassword
+   - MONGO_INITDB_DATABASE=url_db
   volumes:  # making data/db files in mongo container
    - mongo-db:/data/db
 
