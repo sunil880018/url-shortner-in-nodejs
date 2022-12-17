@@ -1,10 +1,13 @@
 version: "1"   # docker compose version
 
 services:      # can have multiple container
+ nginx:
+  ports:
+    - "80:80"
  url-shortner-app:     # container name
   build: .     # build the Dockerfile which is inside the current directory , dot represent current directory
   ports:       # url-shortner-app container ports, It can be a list of array,- represent list
-  - "3000:3000"  # <localhost port>:<container port>
+    - "3000:3000"  # <localhost port>:<container port>
   volumes:     # %cd% or ${pwd}, you have seen in previous
     - ./:/app
     - /app/node_modules # using container files node_modules, not project node_modules,you have seen in previous file

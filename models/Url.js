@@ -7,7 +7,7 @@ const URLSchema = new Schema({
   },
   short_url: {
     type: String,
-    required: true,
+    required: [true, "User must have a short url"],
     unique: true,
     minLength: 1,
     maxLength: 30,
@@ -15,7 +15,7 @@ const URLSchema = new Schema({
   },
   long_url: {
     type: String,
-    required: true,
+    required: [true, "User must have a long url"],
     trim: true,
   },
   createdAt: {

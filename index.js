@@ -1,5 +1,4 @@
 import express from "express";
-import dotenv from "dotenv";
 import { dbConnection } from "./database/db.js";
 import bodyParser from "body-parser";
 import { createUserController } from "./controllers/userController.js";
@@ -10,11 +9,11 @@ import {
 import { apiRequestLimiter } from "./middleware/apiRateLimiter.js";
 import { whitelist } from "./middleware/ipWhiteListing.js";
 import cors from 'cors'
-dotenv.config();
+import { CONFIG } from "./config/config.js";
 
 dbConnection();
 const app = express();
-const PORT = process.env.PORT;
+const PORT = CONFIG.PORT;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
