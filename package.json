@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "build":"npm build",
     "dev": "nodemon index.js"
   },
   "author": "",
