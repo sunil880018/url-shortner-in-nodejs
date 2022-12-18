@@ -23,9 +23,13 @@ jobs:
       - 
         name: Build the project
         run: npm build
+
+      - 
+        name: Run Jest
+        uses: stefanoeb/jest-action@1.0.3
       - 
         name: Test the project
-        run: npm test -- --verbose
+        run: npm test
 
   deploy:
     runs-on: ubuntu-latest
