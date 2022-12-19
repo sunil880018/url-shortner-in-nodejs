@@ -10,6 +10,7 @@ import { apiRequestLimiter } from "./middleware/apiRateLimiter.js";
 import { whitelist } from "./middleware/ipWhiteListing.js";
 import cors from 'cors'
 import { CONFIG } from "./config/config.js";
+import { NotFound } from "./middleware/notFound.js";
 
 dbConnection();
 const app = express();
@@ -23,6 +24,7 @@ app.post("/user", cors(whitelist), createUserController);
 app.post("/shorten", cors(whitelist), shortenController);
 app.get("/shortUrl/:shortUrl", cors(whitelist), shortUrlController);
 
+app.use(NotFound)
 app.listen(PORT, () => {
   console.log(`server run at ${PORT}`);
 });
