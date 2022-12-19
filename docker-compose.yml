@@ -1,4 +1,4 @@
-version: "1"   # docker compose version
+version: "3"   # docker compose version
 
 services:      # can have multiple container
  nginx:

@@ -2,9 +2,13 @@ import { URL } from "../models/Url.js";
 import { generateShortUrl } from "../utils/generateShortUrl.js";
 import { StatusCodes } from "http-status-codes";
 import { BASE_URL } from "../constants.js";
+import { NotFoundError, BadRequestError } from "../errors/index.js";
 const shortenController = async (req, res) => {
   try {
     const { longUrl, userId, apiKey } = req.body;
+    if (!longUrl || !userId || !apiKey) {
+      throw new BadRequestError("Please provide all the values");
+    }
     const shortUrl = generateShortUrl(apiKey);
     const newUrl = {
       user_id: userId,
@@ -13,9 +17,11 @@ const shortenController = async (req, res) => {
     };
     const responseUrl = await URL.create(newUrl);
     const short_url = BASE_URL + responseUrl.short_url;
-    res.status(StatusCodes.CREATED).json({ responseUrl: short_url });
-  } catch (err) {
-    res.status(StatusCodes.BAD_REQUEST).json({});
+    res.status(StatusCodes.CREATED).json({ short_url });
+  } catch (error) {
+    res
+      .status(StatusCodes.BAD_REQUEST)
+      .json({ error: error.message, statusCode: error.statusCode });
   }
 };
 
@@ -26,10 +32,12 @@ const shortUrlController = async (req, res) => {
       const long_url = BASE_URL + url.long_url;
       res.status(StatusCodes.OK).json({ long_url });
     } else {
-      res.status(StatusCodes.NOT_FOUND).json({});
+      throw new NotFoundError(" Not Found!");
     }
-  } catch (err) {
-    res.status(StatusCodes.NOT_FOUND).json({});
+  } catch (error) {
+    res
+      .status(StatusCodes.NOT_FOUND)
+      .json({ error: error.message, statusCode: error.statusCode });
   }
 };
 
