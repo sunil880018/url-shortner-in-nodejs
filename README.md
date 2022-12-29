@@ -1,24 +1,24 @@
 # url-shortner-in-nodejs
 
- #### dependencies installation
+ ## dependencies installation
 
 
  **npm install**
 
 
- #### run the app
+ ## Run the app
  
  
  **npm run dev**
  
  
- #### list of apis
+ ## list of apis
  
  
- ##### http://localhost:3000/user
+ ##### 1. http://localhost:3000/user
  
  
- ##### http://localhost:3000/shorten
+ ##### 2. http://localhost:3000/shorten
  
  
- #####http://localhost:3000/shortUrl:shortUrl
+ ##### 3. http://localhost:3000/shortUrl:shortUrl
